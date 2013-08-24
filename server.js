@@ -1,22 +1,17 @@
 ﻿var http = require('http');
 var Q = require('Q');
 
-console.log(foo()
-.then(function () {
-    return "bar";
-}));
-
-http.createServer(function (req, res) {
-    for (var i = 0; i < 10; i++) {
-        console.log("MyLoog" + i);
-    }
-    console.log("End Loop");
+function my(i)
+{
+    return "MyLoog" + i;
+}
 
 
-    Q.fcall(function ()
-    {
+
+    /*
+    Q.fcall(function () {
         for (var i = 0; i < 10; i++) {
-            setTimeout(console.log("MyLoog"+i), 10);
+            setTimeout(console.log("MyLoog" + i), 1000);
         }
         console.log("End Loop");
         setTimeout(console.log("1"), 1000);
@@ -32,8 +27,10 @@ http.createServer(function (req, res) {
         setTimeout(console.log("ERROR"), 100);
     })
     .done(function () { setTimeout(console.log("Done"), 1000); });
+    */
 
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end('Hello World\n');
-}).listen(3000, '127.0.0.1');
-console.log('Server running at http://127.0.0.1:1337/');
+    http.createServer(function (req, res) {
+        res.writeHead(200, { 'Content-Type': 'text/plain' });
+        res.end('Hello World\n');
+    }).listen(3000, '127.0.0.1');
+    console.log('Server running at http://127.0.0.1:1337/');
