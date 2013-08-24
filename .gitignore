@@ -1,0 +1,8 @@
+lib-cov
+*.csv
+*.dat
+*.bin
+*.dll
+logs
+pids
+results
