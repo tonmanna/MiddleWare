@@ -1,10 +1,17 @@
 ﻿var http = require('http');
 var Q = require('Q');
+
+console.log(foo()
+.then(function () {
+    return "bar";
+}));
+
 http.createServer(function (req, res) {
     for (var i = 0; i < 10; i++) {
-        setTimeout(console.log("MyLoog" + i), 10);
+        console.log("MyLoog" + i);
     }
     console.log("End Loop");
+
 
     Q.fcall(function ()
     {
