@@ -1,9 +1,20 @@
 ﻿var http = require('http');
+var FS = require('fs');
 var Q = require('Q');
 
 function getconnection(conectionstring) {
     return Q.fcall(function () {
-        return "Connection";
+        var data="Fake";
+        var deferred = Q.defer();
+        FS.readFile("C:\\foo.txt", "utf-8", function (error, text) {
+            data = "OK";
+            if (error) {
+                deferred.reject(new Error(error));
+            } else {
+                deferred.resolve(data);
+            }
+        });
+        return deferred.promise;
     });
 }
 function getCon(model) {
