@@ -5,7 +5,7 @@ var Q = require('Q');
 function getconnection(conectionstring) {
     return Q.fcall(function () {
         var data="Fake";
-        var deferred = Q.defer();
+        var deferred = Q.defer(); // ใชัจัการกับ async
         FS.readFile("C:\\foo.txt", "utf-8", function (error, text) {
             data = "OK";
             if (error) {
@@ -19,7 +19,14 @@ function getconnection(conectionstring) {
 }
 function getCon(model) {
     return Q.fcall(function () {
-        return "Table";
+        var data = "Fake";
+        var deferred = Q.defer(); // ใชัจัการกับ async
+        console.log("wait 2 sec");
+        setTimeout(function () {
+                data = "Table";
+                deferred.resolve(data);
+        }, 2000);
+        return deferred.promise;
     });
 }
 
