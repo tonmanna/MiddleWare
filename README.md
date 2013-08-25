@@ -10,3 +10,8 @@ git clone;
 
 
 ทดลองใช้ Connect Q Express
+
+
+ต้องทำต่อ
+http://www.youtube.com/watch?v=i9MHigUZKEM
+http://getbootstrap.com/
